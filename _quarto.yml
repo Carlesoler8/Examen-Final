@@ -1,0 +1,18 @@
+project:
+  title: "Programación y manejo de datos (Respuestas al examen final)"
+author: "Carles Soler Sanchis"
+date: "07-01-2025"
+
+format:
+  html:
+    toc: true        
+    toc-title: "Índice"
+    toc-location: right
+    toc-floating: true
+    code-copy: true   
+    code-fold: true  
+    execute:
+      echo: true      
+      warning: false  
+      error: false    
+editor: visual
