@@ -1,0 +1,173 @@
+---
+title: "Programación y manejo de datos (Respuestas al examen final)"
+
+
+author: 
+- name: Carles Soler Sanchis (carsosa3@alumni.uv.es)
+  affiliation: Universitat de València
+  affiliation-url: https://www.uv.es
+
+date: 01-07-2025
+
+format:
+  html:
+    theme: cosmo  
+    highlight-style: a11y  
+    page-layout: full  
+    fontcolor: black
+    backgroundcolor: "#f0f8ff"
+title-block-style: default #- {default, plain, none}
+title-block-banner-color: green
+
+css: assets/my_styles.css         
+---
+
+## Descargar archivo qmd
+
+Se puede descargar el .qmd en el siguiente link: <a href="index.qmd" download>Descargar Archivo</a>
+
+------------------------------------------------------------------------
+
+# Pregunta 1
+
+```{r}
+#Paquetes que vamos a usar en el examen:
+library(tidyverse)
+library(ggplot2)
+library(dplyr)
+library(gapminder)
+library(tidyr)
+library(knitr)
+library(vembedr)
+library(readr)
+library(readxl)
+library(rio)
+library(knitr)
+
+df <- gapminder::gapminder
+```
+
+### 1.1
+
+Almacena en un data.frame los 4 países de Africa con mayor PIB per cápita en el año 1992. Una vez obtenido el resultado, utiliza la función knitr::kable() para mostrar el resultado. Mejor si pones un título/caption a la tabla. En la tabla no se han de mostrar decimales.
+
+```{r}
+aa <- df %>% 
+  filter(continent == "Africa", year == 1992 ) %>%
+  arrange(desc(gdpPercap)) %>%
+  slice(1:4)%>%
+  mutate(across(where(is.numeric), round, digits = 0)) %>%
+kable(caption = "Tabla 1.1: Los 4 países de África con mayor PIB per cápita en 1992")
+print(aa)
+```
+
+### 1.2
+
+Calcula y almacena en un data.frame, …
+
+```{r}
+df <- gapminder::gapminder
+bb <- df %>% 
+  select(3, 2, 4)%>%
+  arrange(year(4))
+  
+
+print(bb)
+```
+
+### 1.3
+
+```{r}
+df <- gapminder::gapminder
+cc <- df %>% 
+  select(3, 2, 4) %>%
+  arrange(year(desc(4)))%>%
+kable(caption = "Tabla 1.3: Continente con MAYOR Esperanza de vida medía")
+  
+print(cc)
+```
+
+### 1.4
+
+```{r}
+
+```
+
+### 1.5
+
+```{r}
+df
+ggplot(df, aes(year, pop)) + geom_point() + geom_line()
+```
+
+
+
+# Pregunta 2
+
+### 2.1
+
+```{r}
+library(rio)
+datos21 <- "https://www.ine.es/jaxiT3/files/t/es/csv_bdsc/3996.csv?nocab=1"
+rio::import(datos21)
+```
+
+
+
+# Pregunta 3
+
+### 3.1
+
+```{r}
+datos31 <- "https://github.com/perezp44/archivos_download/blob/master/pob_municipal_2020.rds?raw=true"
+datos32 <- "https://github.com/perezp44/archivos.download.2023/raw/refs/heads/main/df_bebes_2019.rds"
+datos33 <- "https://github.com/perezp44/archivos_download/blob/master/geometrias_municipios_CV.rds?raw=true"
+rio::import(datos31)
+rio::import(datos32)
+rio::import(datos33)
+```
+
+
+
+### 3.3
+
+```{r}
+
+```
+
+### 3.4
+
+```{r}
+
+```
+
+### 3.5
+
+```{r}
+
+```
+
+# Pregunta 4
+
+### 4.1
+
+```{r}
+
+```
+
+### 4.2
+
+```{r}
+
+```
+
+# Pregunta 5
+
+### 5.1
+
+```{r}
+library(vembedr)
+embed_url("https://www.youtube.com/watch?v=GxgqpCdOKak")
+```
+
+------------------------------------------------------------------------
